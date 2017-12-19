@@ -45,6 +45,7 @@ public class TUserController {
      * @throws Exception
      */
     @PostMapping("/sign")
+    @ApiOperation(value="用户注册", notes="用户注册")
     public RespModel<TUser> sign(@RequestBody TUser user){
         try{
             if(StringUtils.isBlank(user.getPhone())) throw new Exception("用户手机不能为空。");

@@ -1,18 +1,25 @@
 package com.wccwin.doc.bean;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * 返回的公共结构
  * @author kation
  *
  * @param 返回的模型
  */
+@ApiModel("全局返回结构")
 public class RespModel<T> {
-	
-	private Integer status;//1为正常
-	
-	private T data;//返回的数据
-	
-	private String msg;//返回消息
+
+	@ApiModelProperty("错误码(1:正常|x!=1:异常)")
+	private Integer status;//
+
+	@ApiModelProperty("返回的数据")
+	private T data;
+
+	@ApiModelProperty("返回消息")
+	private String msg;
 	
 	private RespModel(T data){
 		this.data = data;
