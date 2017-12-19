@@ -10,28 +10,11 @@ logging:
     com.itmuch: DEBUG
 spring:
   datasource:
-    cloud:
-      type: com.alibaba.druid.pool.DruidDataSource
-      url: jdbc:mysql://127.0.0.1:3306/cloud
-      username: root
-      password: kation
-      driver-class-name: com.mysql.jdbc.Driver
-      initialSize: 5
-      minIdle: 10
-      maxActive: 30
-      timeBetweenEvictionRunsMillis: 36000000
-      minEvictableIdleTimeMillis: 300000
-      validationQuery: SELECT 1 FROM DUAL
-      testWhileIdle: true
-      testOnBorrow: false
-      testOnReturn: false
-      poolPreparedStatements: true
-      maxPoolPreparedStatementPerConnectionSize: 20
     doc:
       type: com.alibaba.druid.pool.DruidDataSource
       url: jdbc:mysql://118.89.148.123:3306/doc
       username: root
-      password: mydrn
+      password: mydrn123
       driver-class-name: com.mysql.jdbc.Driver
       initialSize: 5
       minIdle: 10

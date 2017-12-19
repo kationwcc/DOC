@@ -1,4 +1,4 @@
-package com.wccwin.doc.Bean;
+package com.wccwin.doc.bean;
 
 /**
  * 返回的公共结构

@@ -7,19 +7,39 @@ import java.util.Objects;
 @Entity
 @Table(name = "t_doc", schema = "word", catalog = "")
 public class TDoc {
-    private int id;
-    private Integer userId;
-    private String docName;
-    private String content;
-    private String createUser;
-    private Timestamp createTime;
-    private Timestamp updateTime;
-    private Boolean isEncryption;
-    private String updateUser;
-    private Boolean isDeleted;
 
     @Id
     @Column(name = "id")
+    private int id;
+
+    @Column(name = "user_id")
+    private Integer userId;
+
+    @Column(name = "doc_name")
+    private String docName;
+
+    @Column(name = "content")
+    private String content;
+
+    @Column(name = "create_user")
+    private String createUser;
+
+    @Column(name = "create_time")
+    private Timestamp createTime;
+
+    @Column(name = "update_time")
+    private Timestamp updateTime;
+
+    @Column(name = "is_encryption")
+    private Boolean isEncryption;
+
+    @Column(name = "update_user")
+    private String updateUser;
+
+    @Column(name = "is_deleted")
+    private Boolean isDeleted;
+
+
     public int getId() {
         return id;
     }
@@ -28,8 +48,6 @@ public class TDoc {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "user_id")
     public Integer getUserId() {
         return userId;
     }
@@ -38,8 +56,6 @@ public class TDoc {
         this.userId = userId;
     }
 
-    @Basic
-    @Column(name = "doc_name")
     public String getDocName() {
         return docName;
     }
@@ -48,8 +64,6 @@ public class TDoc {
         this.docName = docName;
     }
 
-    @Basic
-    @Column(name = "content")
     public String getContent() {
         return content;
     }
@@ -58,8 +72,6 @@ public class TDoc {
         this.content = content;
     }
 
-    @Basic
-    @Column(name = "create_user")
     public String getCreateUser() {
         return createUser;
     }
@@ -68,8 +80,6 @@ public class TDoc {
         this.createUser = createUser;
     }
 
-    @Basic
-    @Column(name = "create_time")
     public Timestamp getCreateTime() {
         return createTime;
     }
@@ -78,8 +88,6 @@ public class TDoc {
         this.createTime = createTime;
     }
 
-    @Basic
-    @Column(name = "update_time")
     public Timestamp getUpdateTime() {
         return updateTime;
     }
@@ -88,8 +96,6 @@ public class TDoc {
         this.updateTime = updateTime;
     }
 
-    @Basic
-    @Column(name = "is_encryption")
     public Boolean getEncryption() {
         return isEncryption;
     }
@@ -98,8 +104,6 @@ public class TDoc {
         isEncryption = encryption;
     }
 
-    @Basic
-    @Column(name = "update_user")
     public String getUpdateUser() {
         return updateUser;
     }
@@ -108,8 +112,6 @@ public class TDoc {
         this.updateUser = updateUser;
     }
 
-    @Basic
-    @Column(name = "is_deleted")
     public Boolean getDeleted() {
         return isDeleted;
     }

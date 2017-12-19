@@ -38,7 +38,7 @@ public class TUserServiceImpl implements TUserService {
      */
     @Override
     public TUser getUser(int id) throws Exception {
-        TUser user = tUserRepository.findOne(Long.valueOf(id));
+        TUser user = tUserRepository.findOne(id);
         return user;
     }
 

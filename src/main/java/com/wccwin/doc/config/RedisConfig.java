@@ -28,7 +28,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class RedisConfig extends CachingConfigurerSupport{
 
-    @Bean
+    @bean
     public KeyGenerator keyGenerator() {
         return new KeyGenerator() {
             @Override
@@ -45,7 +45,7 @@ public class RedisConfig extends CachingConfigurerSupport{
     }
 
     @SuppressWarnings("rawtypes")
-    @Bean
+    @bean
     public CacheManager cacheManager(RedisTemplate redisTemplate) {
         RedisCacheManager rcm = new RedisCacheManager(redisTemplate);
         //设置缓存过期时间
@@ -53,7 +53,7 @@ public class RedisConfig extends CachingConfigurerSupport{
         return rcm;
     }
 
-    @Bean
+    @bean
     public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory factory) {
         StringRedisTemplate template = new StringRedisTemplate(factory);
         Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);

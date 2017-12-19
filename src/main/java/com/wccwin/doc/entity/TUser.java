@@ -5,22 +5,44 @@ import java.sql.Timestamp;
 import java.util.Objects;
 
 @Entity
-@Table(name = "t_user", schema = "word")
+@Table(name = "t_user", schema = "doc")
 public class TUser {
-    private int id;
-    private String token;
-    private String name;
-    private String phone;
-    private String password;
-    private Integer userStatus;
-    private Double point;
-    private Timestamp createTime;
-    private Timestamp updateTime;
-    private Boolean isDeleted;
-    private Timestamp updateime;
 
     @Id
-    @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(name = "token")
+    private String token;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "phone")
+    private String phone;
+
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "user_status")
+    private Integer userStatus;
+
+    @Column(name = "point")
+    private Double point;
+
+    @Column(name = "create_time")
+    private Timestamp createTime;
+
+    @Column(name = "update_time")
+    private Timestamp updateTime;
+
+    @Column(name = "is_deleted")
+    private Boolean isDeleted;
+
+    @Column(name = "updateime")
+    private Timestamp updateime;
+
+
     public int getId() {
         return id;
     }
@@ -29,8 +51,6 @@ public class TUser {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "token")
     public String getToken() {
         return token;
     }
@@ -39,8 +59,6 @@ public class TUser {
         this.token = token;
     }
 
-    @Basic
-    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -49,8 +67,6 @@ public class TUser {
         this.name = name;
     }
 
-    @Basic
-    @Column(name = "phone")
     public String getPhone() {
         return phone;
     }
@@ -59,8 +75,6 @@ public class TUser {
         this.phone = phone;
     }
 
-    @Basic
-    @Column(name = "password")
     public String getPassword() {
         return password;
     }
@@ -69,8 +83,6 @@ public class TUser {
         this.password = password;
     }
 
-    @Basic
-    @Column(name = "user_status")
     public Integer getUserStatus() {
         return userStatus;
     }
@@ -79,8 +91,6 @@ public class TUser {
         this.userStatus = userStatus;
     }
 
-    @Basic
-    @Column(name = "point")
     public Double getPoint() {
         return point;
     }
@@ -89,8 +99,6 @@ public class TUser {
         this.point = point;
     }
 
-    @Basic
-    @Column(name = "create_time")
     public Timestamp getCreateTime() {
         return createTime;
     }
@@ -99,8 +107,6 @@ public class TUser {
         this.createTime = createTime;
     }
 
-    @Basic
-    @Column(name = "update_time")
     public Timestamp getUpdateTime() {
         return updateTime;
     }
@@ -109,8 +115,6 @@ public class TUser {
         this.updateTime = updateTime;
     }
 
-    @Basic
-    @Column(name = "is_deleted")
     public Boolean getDeleted() {
         return isDeleted;
     }
@@ -119,8 +123,6 @@ public class TUser {
         isDeleted = deleted;
     }
 
-    @Basic
-    @Column(name = "updateime")
     public Timestamp getUpdateime() {
         return updateime;
     }

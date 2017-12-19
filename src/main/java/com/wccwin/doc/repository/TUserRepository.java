@@ -7,15 +7,14 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TUserRepository extends JpaRepository<TUser, Long> {
-
+public interface TUserRepository extends JpaRepository<TUser, Integer> {
 
     /**
      * 根据用户手机号码用户信息
      * @param phone
      * @return
      */
-    @Query("select u from User u where phone = :phone ")
+    @Query("select u from TUser u where phone = :phone ")
     TUser getTUser(@Param("phone") String phone);
 
     /**
@@ -24,7 +23,7 @@ public interface TUserRepository extends JpaRepository<TUser, Long> {
      * @param password
      * @return
      */
-    @Query("select u from User u where phone = :phone and password = :password ")
+    @Query("select u from TUser u where phone = :phone and password = :password ")
     TUser getTUser(@Param("phone") String phone, @Param("password") String password);
 
 }

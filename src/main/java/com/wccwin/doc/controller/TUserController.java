@@ -1,18 +1,14 @@
 package com.wccwin.doc.controller;
 
-import com.wccwin.doc.Bean.RespModel;
+import com.wccwin.doc.bean.RespModel;
 import com.wccwin.doc.entity.TUser;
 import com.wccwin.doc.service.TUserService;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/doc")
+@RequestMapping("/user")
 public class TUserController {
 
     @Autowired
@@ -25,8 +21,8 @@ public class TUserController {
      * @return
      * @throws Exception
      */
-    @PostMapping("/login")
-    public RespModel<TUser> login(@RequestBody int id){
+    @GetMapping("/{id}")
+    public RespModel<TUser> getUser(@PathVariable(name="id",required=true) int id){
         try{
             return RespModel.success(tUserService.getUser(id));
         } catch (Exception e){
