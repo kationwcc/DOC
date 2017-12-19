@@ -27,9 +27,4 @@ public class DocApplication {
 		return new RestTemplate();
 	}
 
-
-
-
-
-
 }

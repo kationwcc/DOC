@@ -3,6 +3,9 @@ package com.wccwin.doc.controller;
 import com.wccwin.doc.bean.RespModel;
 import com.wccwin.doc.entity.TUser;
 import com.wccwin.doc.service.TUserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,7 +25,10 @@ public class TUserController {
      * @throws Exception
      */
     @GetMapping("/{id}")
-    public RespModel<TUser> getUser(@PathVariable(name="id",required=true) int id){
+    @ApiOperation(value="用户详情", notes="获取单个用户的详情数据")
+    public RespModel<TUser> getUser(
+            @ApiParam(required=true, name="id", value="用户ID")
+            @PathVariable(name="id",required=true) int id){
         try{
             return RespModel.success(tUserService.getUser(id));
         } catch (Exception e){
