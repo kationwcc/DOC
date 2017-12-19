@@ -1,0 +1,75 @@
+server:
+  port: 2000
+  context-path: /DOC
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
+    com.itmuch: DEBUG
+spring:
+  datasource:
+    cloud:
+      type: com.alibaba.druid.pool.DruidDataSource
+      url: jdbc:mysql://127.0.0.1:3306/cloud
+      username: root
+      password: kation
+      driver-class-name: com.mysql.jdbc.Driver
+      initialSize: 5
+      minIdle: 10
+      maxActive: 30
+      timeBetweenEvictionRunsMillis: 36000000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+    doc:
+      type: com.alibaba.druid.pool.DruidDataSource
+      url: jdbc:mysql://118.89.148.123:3306/doc
+      username: root
+      password: mydrn
+      driver-class-name: com.mysql.jdbc.Driver
+      initialSize: 5
+      minIdle: 10
+      maxActive: 30
+      timeBetweenEvictionRunsMillis: 36000000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 20
+  jpa:  
+    database : MYSQL  
+    show-sql : true  
+    hibernate:  
+      ddl-auto: update  
+      naming-strategy : org.hibernate.cfg.ImprovedNamingStrategy  
+    properties:  
+      hibernate:  
+        dialect : org.hibernate.dialect.MySQL5Dialect 
+  application:
+    name: doc-service
+  profiles:
+    active: bendi
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+    lease-renewal-interval-in-seconds: 15      # 心跳时间，即服务续约间隔时间（缺省为30s）
+    lease-expiration-duration-in-seconds: 60  # 发呆时间，即服务续约到期时间（缺省为90s）
+  client:
+    healthcheck: 
+        enabled: true 
+    register-with-eureka: true
+    fetch-registry: true
+    service-url: 
+      defaultZone: http://kation:123456@118.89.148.123/eureka
+security: 
+  basic:
+    enabled: false

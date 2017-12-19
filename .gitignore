@@ -1,0 +1,5 @@
+.*
+src/main/pom.xml
+DOC.iml
+target
+!.gitignore
