@@ -3,8 +3,12 @@ package com.wccwin.doc.service.impl;
 import com.wccwin.doc.entity.TUser;
 import com.wccwin.doc.repository.TUserRepository;
 import com.wccwin.doc.service.TUserService;
+import com.wccwin.doc.util.MD5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.sql.Timestamp;
+import java.util.UUID;
 
 @Service("tUserService")
 public class TUserServiceImpl implements TUserService {
@@ -26,6 +30,11 @@ public class TUserServiceImpl implements TUserService {
         if(tuser != null){
             throw new Exception("对不起,该手机已经注册过了。");
         }
+        user.setDeleted(false);
+        user.setCreateTime(new Timestamp(System.currentTimeMillis()));
+        user.setUpdateime(new Timestamp(System.currentTimeMillis()));
+        user.setToken(UUID.randomUUID().toString());
+        user.setPassword(MD5Util.MD5(user.getPassword()));
         user = tUserRepository.save(user);
         return user;
     }

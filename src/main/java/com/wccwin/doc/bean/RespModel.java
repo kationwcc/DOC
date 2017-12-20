@@ -20,8 +20,12 @@ public class RespModel<T> {
 
 	@ApiModelProperty("返回消息")
 	private String msg;
+
+	@ApiModelProperty("服务器端时间戳")
+	private Long time;
 	
 	private RespModel(T data){
+		this.time = System.currentTimeMillis();
 		this.data = data;
 	}
 	
