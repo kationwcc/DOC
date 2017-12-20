@@ -3,16 +3,19 @@ package com.wccwin.doc.controller;
 import com.wccwin.doc.bean.RespModel;
 import com.wccwin.doc.entity.TUser;
 import com.wccwin.doc.service.TUserService;
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
-public class TUserController {
+public class TUserController extends OperController {
+
+
 
     @Autowired
     private TUserService tUserService;

@@ -2,6 +2,8 @@ server:
   port: 2000
   context-path: /DOC
 logging:
+  file: D:/logs/DOC.log  # 日志文件,绝对路径或相对路径
+  path: D:/logs  # 保存日志文件目录路径
   level:
     root: INFO
     org.hibernate: INFO
@@ -29,7 +31,8 @@ spring:
       maxPoolPreparedStatementPerConnectionSize: 20
   jpa:  
     database : MYSQL  
-    show-sql : true  
+    show-sql : true
+    format-sql : true
     hibernate:  
       ddl-auto: update  
       naming-strategy : org.hibernate.cfg.ImprovedNamingStrategy  
