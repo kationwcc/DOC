@@ -52,7 +52,7 @@ public class OperController {
                 while (e1.hasMoreElements()) {
                     key = (String) e1.nextElement();
                     value = String.valueOf(this.request.getAttribute(key));
-                    if ("ISO-8859-1".equals(PublicMethod.getEncoding(value))) {
+                    if ("ISO-8859-1".equals(getEncoding(value))) {
                         try {
                             params.put(key, new String(value.getBytes("ISO-8859-1"), "UTF-8"));
                         } catch (Exception arg8) {
@@ -68,7 +68,7 @@ public class OperController {
         while (e.hasMoreElements()) {
             key = (String) e.nextElement();
             value = this.getRequest().getParameter(key);
-            if ("ISO-8859-1".equals(PublicMethod.getEncoding(value))) {
+            if ("ISO-8859-1".equals(getEncoding(value))) {
                 try {
                     params.put(key, new String(value.getBytes("ISO-8859-1"), "UTF-8"));
                 } catch (UnsupportedEncodingException arg7) {
@@ -106,4 +106,50 @@ public class OperController {
 
         return ip;
     }
+
+
+    public static String getEncoding(String str) {
+        String encode = "GB2312";
+
+        try {
+            if (str.equals(new String(str.getBytes(encode), encode))) {
+                return encode;
+            }
+        } catch (Exception arg5) {
+            ;
+        }
+
+        encode = "ISO-8859-1";
+
+        try {
+            if (str.equals(new String(str.getBytes(encode), encode))) {
+                return encode;
+            }
+        } catch (Exception arg4) {
+            ;
+        }
+
+        encode = "UTF-8";
+
+        try {
+            if (str.equals(new String(str.getBytes(encode), encode))) {
+                return encode;
+            }
+        } catch (Exception arg3) {
+            ;
+        }
+
+        encode = "GBK";
+
+        try {
+            if (str.equals(new String(str.getBytes(encode), encode))) {
+                return encode;
+            }
+        } catch (Exception arg2) {
+            ;
+        }
+
+        return "";
+    }
+
 }
