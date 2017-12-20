@@ -1,5 +1,6 @@
 package com.wccwin.doc.controller;
 
+import com.wccwin.doc.bean.AccessToken;
 import com.wccwin.doc.bean.RespModel;
 import com.wccwin.doc.entity.TUser;
 import com.wccwin.doc.service.TUserService;
@@ -47,7 +48,7 @@ public class TUserController extends OperController {
      */
     @PostMapping("/sign")
     @ApiOperation(value="用户注册", notes="用户注册")
-    public RespModel<TUser> sign(@RequestBody TUser user){
+    public RespModel<AccessToken> sign(@RequestBody TUser user){
         try{
             if(StringUtils.isBlank(user.getPhone())) throw new Exception("用户手机不能为空。");
             if(StringUtils.isBlank(user.getName())) throw new Exception("用户姓名不能为空。");
