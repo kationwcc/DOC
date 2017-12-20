@@ -1,10 +1,18 @@
 package com.wccwin.doc.service;
 
-import com.wccwin.doc.bean.AccessToken;
+import com.wccwin.doc.bean.req.Login;
+import com.wccwin.doc.bean.resp.AccessToken;
 import com.wccwin.doc.entity.TUser;
 
 public interface TUserService {
 
+    /**
+     * 用户登入接口
+     * @param login
+     * @return
+     * @throws Exception
+     */
+    public AccessToken login(Login login) throws Exception;
 
     /**
      * 用户注册
@@ -12,7 +20,7 @@ public interface TUserService {
      * @return
      * @throws Exception
      */
-    public AccessToken signTUser(TUser user) throws Exception;
+    public AccessToken signUp(TUser user) throws Exception;
 
     /**
      * 获取用户信息
@@ -21,6 +29,9 @@ public interface TUserService {
      * @throws Exception
      */
     public TUser getUser(int id) throws Exception ;
+
+
+
 
 
 }

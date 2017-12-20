@@ -1,4 +1,4 @@
-package com.wccwin.doc.bean;
+package com.wccwin.doc.bean.resp;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

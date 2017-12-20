@@ -1,7 +1,8 @@
 package com.wccwin.doc.controller;
 
-import com.wccwin.doc.bean.AccessToken;
-import com.wccwin.doc.bean.RespModel;
+import com.wccwin.doc.bean.req.Login;
+import com.wccwin.doc.bean.resp.AccessToken;
+import com.wccwin.doc.bean.resp.RespModel;
 import com.wccwin.doc.entity.TUser;
 import com.wccwin.doc.service.TUserService;
 import io.swagger.annotations.ApiOperation;
@@ -46,9 +47,9 @@ public class TUserController extends OperController {
      * @return
      * @throws Exception
      */
-    @PostMapping("/sign")
+    @PostMapping("/signUp")
     @ApiOperation(value="用户注册", notes="用户注册")
-    public RespModel<AccessToken> sign(@RequestBody TUser user){
+    public RespModel<AccessToken> signUp(@RequestBody TUser user){
         try{
             if(StringUtils.isBlank(user.getPhone())) throw new Exception("用户手机不能为空。");
             if(StringUtils.isBlank(user.getName())) throw new Exception("用户姓名不能为空。");
@@ -56,7 +57,7 @@ public class TUserController extends OperController {
             if(StringUtils.isBlank(user.getPhone())) throw new Exception("用户手机不能为空。");
             if(StringUtils.isBlank(user.getPhone())) throw new Exception("用户手机不能为空。");
 
-            return RespModel.success(tUserService.signTUser(user));
+            return RespModel.success(tUserService.signUp(user));
         } catch (Exception e){
             e.printStackTrace();
             return RespModel.error(-1, null, e);
@@ -64,7 +65,24 @@ public class TUserController extends OperController {
 
     }
 
+    /**
+     * 用户登入接口
+     * @param login
+     * @return
+     * @throws Exception
+     */
+    @PostMapping("/login")
+    @ApiOperation(value="用户登入", notes="用户登入")
+    public RespModel<AccessToken> login(
+            @RequestBody Login login){
+        try{
+            return RespModel.success(tUserService.login(login));
+        } catch (Exception e){
+            e.printStackTrace();
+            return RespModel.error(-1, null, e);
+        }
 
+    }
 
 
 

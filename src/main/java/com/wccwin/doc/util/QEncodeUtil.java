@@ -42,6 +42,10 @@ public class QEncodeUtil {
 
         String decrypt = aesDecrypt(encrypt, key);
         System.out.println("解密后：" + decrypt);
+
+        String str = "+/VcT4Ota2684m75VcLjs8SSBJORH72uhTNYb9k9Xei2w4J/xmoRGLk0QtVKvGIE";
+        System.out.println("解密后：" + aesDecrypt(str, "1"));
+
     }
 
     /**
