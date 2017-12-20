@@ -23,17 +23,17 @@ public class TUserController extends OperController {
 
     /**
      * 获取用户信息
-     * @param id
+     * @param token
      * @return
      * @throws Exception
      */
-    @GetMapping("/{id}")
+    @GetMapping("/{token}")
     @ApiOperation(value="用户详情", notes="获取单个用户的详情数据")
     public RespModel<TUser> getUser(
-            @ApiParam(required=true, name="id", value="用户ID")
-            @PathVariable(name="id",required=true) int id){
+            @ApiParam(required=true, name="token", value="用户ID")
+            @PathVariable(name="token",required=true) String token){
         try{
-            return RespModel.success(tUserService.getUser(id));
+            return RespModel.success(tUserService.getUser(token));
         } catch (Exception e){
             e.printStackTrace();
             return RespModel.error(-1, null, e);
@@ -53,9 +53,7 @@ public class TUserController extends OperController {
         try{
             if(StringUtils.isBlank(user.getPhone())) throw new Exception("用户手机不能为空。");
             if(StringUtils.isBlank(user.getName())) throw new Exception("用户姓名不能为空。");
-            if(StringUtils.isBlank(user.getPhone())) throw new Exception("用户手机不能为空。");
-            if(StringUtils.isBlank(user.getPhone())) throw new Exception("用户手机不能为空。");
-            if(StringUtils.isBlank(user.getPhone())) throw new Exception("用户手机不能为空。");
+            if(StringUtils.isBlank(user.getPassword())) throw new Exception("用户密码不能为空。");
 
             return RespModel.success(tUserService.signUp(user));
         } catch (Exception e){

@@ -58,9 +58,10 @@ public class TUserServiceImpl implements TUserService {
         }
         user.setDeleted(false);
         user.setCreateTime(new Timestamp(System.currentTimeMillis()));
-        user.setUpdateime(new Timestamp(System.currentTimeMillis()));
+        user.setUpdateTime(new Timestamp(System.currentTimeMillis()));
         user.setToken(UUID.randomUUID().toString());
         user.setPassword(MD5Util.MD5(user.getPassword()));
+        user.setUserStatus(1);
         user = tUserRepository.save(user);
 
         String token = QEncodeUtil.aesEncrypt(user.getToken(), String.valueOf(user.getId()));
@@ -70,13 +71,13 @@ public class TUserServiceImpl implements TUserService {
 
     /**
      * 获取用户信息
-     * @param id
+     * @param token
      * @return
      * @throws Exception
      */
     @Override
-    public TUser getUser(int id) throws Exception {
-        TUser user = tUserRepository.findOne(id);
+    public TUser getUser(String token) throws Exception {
+        TUser user = tUserRepository.getTUserByToken(token);
         return user;
     }
 

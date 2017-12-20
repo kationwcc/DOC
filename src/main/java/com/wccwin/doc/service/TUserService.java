@@ -24,11 +24,12 @@ public interface TUserService {
 
     /**
      * 获取用户信息
-     * @param id
+     * @param token
      * @return
      * @throws Exception
      */
-    public TUser getUser(int id) throws Exception ;
+    public TUser getUser(String token) throws Exception ;
+
 
 
 

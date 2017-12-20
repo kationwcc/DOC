@@ -26,4 +26,8 @@ public interface TUserRepository extends JpaRepository<TUser, Integer> {
     @Query("select u from TUser u where phone = :phone and password = :password ")
     TUser getTUser(@Param("phone") String phone, @Param("password") String password);
 
+
+    @Query("select u from TUser u where phone = :phone and token = :token ")
+    TUser getTUserByToken(@Param("token") String token);
+
 }
