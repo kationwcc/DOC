@@ -27,8 +27,8 @@ public class TUserServiceImpl implements TUserService {
      * @return
      * @throws Exception
      */
-    @Transactional
     @Override
+    @Transactional
     public AccessToken login(Login login) throws Exception {
         login.setPwd(MD5Util.MD5(login.getPwd()));
         TUser user = tUserRepository.getTUser(login.getPhone(), login.getPwd());
@@ -51,6 +51,7 @@ public class TUserServiceImpl implements TUserService {
      * @throws Exception
      */
     @Override
+    @Transactional
     public AccessToken signUp(TUser user) throws Exception {
         TUser tuser = tUserRepository.getTUser(user.getPhone());
         if(tuser != null){
@@ -76,6 +77,7 @@ public class TUserServiceImpl implements TUserService {
      * @throws Exception
      */
     @Override
+    @Transactional
     public TUser getUser(String token) throws Exception {
         TUser user = tUserRepository.getTUserByToken(token);
         return user;
