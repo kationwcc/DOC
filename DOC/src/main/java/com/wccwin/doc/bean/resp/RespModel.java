@@ -1,7 +1,5 @@
 package com.wccwin.doc.bean.resp;
 
-import com.pub.BusinessException;
-import com.pub.ErrorMsgConfig;
 import com.wccwin.doc.pub.BusinessException;
 import com.wccwin.doc.pub.ErrorMsgConfig;
 
