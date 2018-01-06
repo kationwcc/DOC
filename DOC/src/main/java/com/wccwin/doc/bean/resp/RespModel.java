@@ -1,31 +1,19 @@
 package com.wccwin.doc.bean.resp;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import com.pub.BusinessException;
+import com.pub.ErrorMsgConfig;
+import com.wccwin.doc.pub.BusinessException;
+import com.wccwin.doc.pub.ErrorMsgConfig;
 
-/**
- * 返回的公共结构
- * @author kation
- *
- * @param 返回的模型
- */
-@ApiModel("全局返回结构")
 public class RespModel<T> {
-
-	@ApiModelProperty("错误码(1:正常|x!=1:异常)")
-	private Integer status;//
-
-	@ApiModelProperty("返回的数据")
-	private T data;
-
-	@ApiModelProperty("返回消息")
-	private String msg;
-
-	@ApiModelProperty("服务器端时间戳")
-	private Long time;
+	
+	private Integer status;//1为正常
+	
+	private T data;//返回的数据
+	
+	private String msg;//返回消息
 	
 	private RespModel(T data){
-		this.time = System.currentTimeMillis();
 		this.data = data;
 	}
 	
@@ -45,7 +33,7 @@ public class RespModel<T> {
 	
 	/**
 	 * 异常返回
-	 * @param 异常码(不能为1)
+	 * @param status
 	 * @param data
 	 * @param e
 	 * @return 
@@ -53,9 +41,16 @@ public class RespModel<T> {
 	 * @data 2017年11月3日 下午2:15:22
 	 */
 	public static <T> RespModel<T> error(Integer status, T data, Exception e){
-		RespModel<T> result = new RespModel<T>(data);
-		result.setStatus(status);
-		result.setMsg(e.getMessage());
+		RespModel<T> result = new RespModel<>(data);
+		if(e instanceof BusinessException){//业务异常
+			int code = ((BusinessException) e).getStatus();
+			result.setStatus(0- code);
+			result.setMsg(ErrorMsgConfig.getErrorMsg(code));
+		}else{//其他异常
+			result.setStatus(status);
+			result.setMsg(e.getMessage());
+
+		}
 		return result;
 		
 	}
@@ -83,7 +78,7 @@ public class RespModel<T> {
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}
-	
-	
+
+
 
 }
