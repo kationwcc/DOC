@@ -1,8 +1,8 @@
 server:
   port: 2000
-  context-path: /doc
+  context-path: /safe
 logging:
-  file: D:/logs/doc.log  # 日志文件,绝对路径或相对路径
+  file: D:/logs/safe.log  # 日志文件,绝对路径或相对路径
   path: D:/logs  # 保存日志文件目录路径
   level:
     root: INFO
@@ -40,7 +40,7 @@ spring:
       hibernate:  
         dialect : org.hibernate.dialect.MySQL5Dialect 
   application:
-    name: doc-service
+    name: safe-service
   profiles:
     active: bendi
 eureka:
