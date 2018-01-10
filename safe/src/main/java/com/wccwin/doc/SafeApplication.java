@@ -16,10 +16,10 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 @ComponentScan("com")
 @EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
-public class DocApplication {
+public class SafeApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DocApplication.class, args);
+		SpringApplication.run(SafeApplication.class, args);
 	}
 
 	@Bean
