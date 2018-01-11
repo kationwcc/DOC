@@ -14,7 +14,7 @@ spring:
   datasource:
     doc:
       type: com.alibaba.druid.pool.DruidDataSource
-      url: jdbc:mysql://118.89.148.123:3306/docDB
+      url: jdbc:mysql://118.89.148.123:3306/doc
       username: root
       password: mydrn123
       driver-class-name: com.mysql.jdbc.Driver
@@ -59,3 +59,6 @@ eureka:
 security: 
   basic:
     enabled: false
+hystrix:
+  metrics:
+    polling-interval-ms: 5000

@@ -1,12 +1,12 @@
-package com.wccwin.doc.service.impl;
+package com.wccwin.safe.service.impl;
 
-import com.wccwin.doc.bean.req.Login;
-import com.wccwin.doc.bean.resp.AccessToken;
-import com.wccwin.doc.repository.TUserRepository;
-import com.wccwin.doc.util.MD5Util;
-import com.wccwin.doc.util.QEncodeUtil;
-import com.wccwin.doc.entity.TUser;
-import com.wccwin.doc.service.TUserService;
+import com.wccwin.safe.bean.req.Login;
+import com.wccwin.safe.bean.resp.AccessToken;
+import com.wccwin.safe.entity.TUser;
+import com.wccwin.safe.repository.TUserRepository;
+import com.wccwin.safe.service.TUserService;
+import com.wccwin.safe.util.MD5Util;
+import com.wccwin.safe.util.QEncodeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
