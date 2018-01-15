@@ -1,6 +1,4 @@
-/*
-
-package com.wccwin.user.config;
+package com.wccwin.safe.config;
 
 import java.lang.reflect.Method;
 
@@ -22,13 +20,11 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-*/
-/*@Configuration
-@EnableCaching*//*
-
+@Configuration
+@EnableCaching
 public class RedisConfig extends CachingConfigurerSupport{
 
-    @bean
+    @Bean
     public KeyGenerator keyGenerator() {
         return new KeyGenerator() {
             @Override
@@ -45,7 +41,7 @@ public class RedisConfig extends CachingConfigurerSupport{
     }
 
     @SuppressWarnings("rawtypes")
-    @bean
+    @Bean
     public CacheManager cacheManager(RedisTemplate redisTemplate) {
         RedisCacheManager rcm = new RedisCacheManager(redisTemplate);
         //设置缓存过期时间
@@ -53,7 +49,7 @@ public class RedisConfig extends CachingConfigurerSupport{
         return rcm;
     }
 
-    @bean
+    @Bean
     public RedisTemplate<String, String> redisTemplate(RedisConnectionFactory factory) {
         StringRedisTemplate template = new StringRedisTemplate(factory);
         Jackson2JsonRedisSerializer jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer(Object.class);
@@ -67,4 +63,3 @@ public class RedisConfig extends CachingConfigurerSupport{
     }
 
 }
-*/

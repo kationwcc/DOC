@@ -60,11 +60,10 @@
 			<artifactId>spring-cloud-starter-feign</artifactId>
 		</dependency>
 
-		<!--<dependency>
+		<dependency>
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-redis</artifactId>
-		    <version>1.4.0.RELEASE</version>
-		</dependency>-->
+		</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
