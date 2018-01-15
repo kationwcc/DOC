@@ -1,4 +1,4 @@
-package com.wccwin.doc.config;
+package com.wccwin.safe.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -22,7 +22,7 @@ import java.util.Map;
 @EnableJpaRepositories(
         entityManagerFactoryRef="docEntityManagerFactory",
         transactionManagerRef="docTransactionManager",
-        basePackages= {"com.wccwin.doc.repository"}) //设置Repository所在位置
+        basePackages= {"com.wccwin.safe.repository"}) //设置Repository所在位置
 public class DocDataSourceConfigurer {
 
     @Autowired
@@ -40,7 +40,7 @@ public class DocDataSourceConfigurer {
         return builder
                 .dataSource(docDataSource)
                 .properties(getVendorProperties(docDataSource))
-                .packages("com.wccwin.doc.entity") //设置实体类所在位置
+                .packages("com.wccwin.safe.entity") //设置实体类所在位置
                 .persistenceUnit("docPersistenceUnit")
                 .build();
     }

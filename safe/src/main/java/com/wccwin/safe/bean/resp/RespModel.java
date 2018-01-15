@@ -1,7 +1,7 @@
-package com.wccwin.doc.bean.resp;
+package com.wccwin.safe.bean.resp;
 
-import com.wccwin.doc.pub.BusinessException;
-import com.wccwin.doc.pub.ErrorMsgConfig;
+import com.wccwin.safe.pub.BusinessException;
+import com.wccwin.safe.pub.ErrorMsgConfig;
 
 public class RespModel<T> {
 	

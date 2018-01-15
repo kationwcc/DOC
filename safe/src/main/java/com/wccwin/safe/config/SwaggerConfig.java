@@ -1,4 +1,4 @@
-package com.wccwin.doc.config;
+package com.wccwin.safe.config;
 
 
 import static com.google.common.base.Predicates.or;

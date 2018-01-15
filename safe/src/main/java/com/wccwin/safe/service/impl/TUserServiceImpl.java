@@ -1,12 +1,12 @@
-package com.wccwin.doc.service.impl;
+package com.wccwin.safe.service.impl;
 
-import com.wccwin.doc.bean.req.Login;
-import com.wccwin.doc.bean.resp.AccessToken;
-import com.wccwin.doc.repository.TUserRepository;
-import com.wccwin.doc.util.MD5Util;
-import com.wccwin.doc.util.QEncodeUtil;
-import com.wccwin.doc.entity.TUser;
-import com.wccwin.doc.service.TUserService;
+import com.wccwin.safe.bean.req.Login;
+import com.wccwin.safe.bean.resp.AccessToken;
+import com.wccwin.safe.entity.TUser;
+import com.wccwin.safe.repository.TUserRepository;
+import com.wccwin.safe.service.TUserService;
+import com.wccwin.safe.util.MD5Util;
+import com.wccwin.safe.util.QEncodeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,8 +27,8 @@ public class TUserServiceImpl implements TUserService {
      * @return
      * @throws Exception
      */
-    @Override
     @Transactional
+    @Override
     public AccessToken login(Login login) throws Exception {
         login.setPwd(MD5Util.MD5(login.getPwd()));
         TUser user = tUserRepository.getTUser(login.getPhone(), login.getPwd());
@@ -51,7 +51,6 @@ public class TUserServiceImpl implements TUserService {
      * @throws Exception
      */
     @Override
-    @Transactional
     public AccessToken signUp(TUser user) throws Exception {
         TUser tuser = tUserRepository.getTUser(user.getPhone());
         if(tuser != null){
@@ -77,7 +76,6 @@ public class TUserServiceImpl implements TUserService {
      * @throws Exception
      */
     @Override
-    @Transactional
     public TUser getUser(String token) throws Exception {
         TUser user = tUserRepository.getTUserByToken(token);
         return user;
