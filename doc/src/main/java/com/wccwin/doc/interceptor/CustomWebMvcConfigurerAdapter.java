@@ -9,11 +9,12 @@ public class CustomWebMvcConfigurerAdapter extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        super.addInterceptors(registry);
         registry.addInterceptor(new UserInterceptor())
-                .addPathPatterns("/")
+                .addPathPatterns("/**")
                 .excludePathPatterns("/user/login")
                 .excludePathPatterns("/user/signUp");
+        super.addInterceptors(registry);
+
 
 
 

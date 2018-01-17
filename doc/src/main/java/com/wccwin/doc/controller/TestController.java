@@ -2,18 +2,18 @@ package com.wccwin.doc.controller;
 
 import com.wccwin.doc.bean.resp.RespModel;
 import com.wccwin.doc.service.safe.TestService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 @RestController
 @RequestMapping("/test")
-public class TestController {
+public class TestController extends OperController{
 
-    @Autowired
-    private RestTemplate restTemplate;
+    private Logger logger = LoggerFactory.getLogger(TestController.class);
 
     @Autowired
     private TestService testService;
@@ -23,8 +23,9 @@ public class TestController {
     public RespModel<Integer> test(){
 
         RespModel<Integer> safeTest = testService.test();
-        System.out.println(" --   > test() In method! ");
+        //System.out.println(" --   > test() In method! ");
 
+        logger.info(" --   > test() In method! ");
         return RespModel.success(safeTest.getData());
     }
 

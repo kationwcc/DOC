@@ -9,7 +9,7 @@
 	<packaging>pom</packaging>
 	
 	<name>kation-spring-cloud</name>
-	<description>Demo project for Spring Boot</description>
+	<description>doc cloud project</description>
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,7 +20,7 @@
 	<parent>
 	    <groupId>org.springframework.boot</groupId>
 	    <artifactId>spring-boot-starter-parent</artifactId>
-	    <version>1.4.1.RELEASE</version>
+		<version>1.5.9.RELEASE</version>
 	</parent>
 
 	
@@ -41,8 +41,9 @@
 		</dependency>
 
 		<dependency>
-		    <groupId>org.springframework.boot</groupId>
-		    <artifactId>spring-boot-starter-redis</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-redis</artifactId>
+			<version>1.4.7.RELEASE</version>
 		</dependency>
 
 		<dependency>
@@ -106,6 +107,13 @@
 			<scope>runtime</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.44</version>
+		</dependency>
+
+
 	</dependencies>
 	
 	<dependencyManagement>
@@ -113,7 +121,7 @@
 	        <dependency>
 	            <groupId>org.springframework.cloud</groupId>
 	            <artifactId>spring-cloud-dependencies</artifactId>
-	            <version>Camden.SR1</version>
+	            <version>Dalston.SR1</version>
 	            <type>pom</type>
 	            <scope>import</scope>
 	        </dependency>
@@ -156,9 +164,28 @@
 		
 	
 	</dependencyManagement> -->
-	
+
 	<build>
+		<!-- <finalName>${warPackageName}</finalName> -->
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<!--过滤测试文件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
