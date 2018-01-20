@@ -21,68 +21,12 @@ public class TUserServiceImpl implements TUserService {
     @Autowired
     private TUserRepository tUserRepository;
 
-    /**
-     * 用户登入接口
-     * @param login
-     * @return
-     * @throws Exception
-     */
-    @Transactional
     @Override
-    public AccessToken login(Login login) throws Exception {
-        login.setPwd(MD5Util.MD5(login.getPwd()));
-        TUser user = tUserRepository.getTUser(login.getPhone(), login.getPwd());
-        if(user == null ){
-            throw new Exception("您的账号和密码有误，请确认后重试");
-        }
-
-        user.setToken(UUID.randomUUID().toString());
-
-        String token = QEncodeUtil.aesEncrypt(user.getToken(), String.valueOf(user.getId()));
-        AccessToken accessToken = new AccessToken(user.getId(), token);
-
-        return accessToken;
-    }
-
-    /**
-     * 用户注册
-     * @param user
-     * @return
-     * @throws Exception
-     */
-    @Override
-    public AccessToken signUp(TUser user) throws Exception {
-        TUser tuser = tUserRepository.getTUser(user.getPhone());
-        if(tuser != null){
-            throw new Exception("对不起,该手机已经注册过了。");
-        }
-        user.setDeleted(false);
-        user.setCreateTime(new Timestamp(System.currentTimeMillis()));
-        user.setUpdateTime(new Timestamp(System.currentTimeMillis()));
-        user.setToken(UUID.randomUUID().toString());
-        user.setPassword(MD5Util.MD5(user.getPassword()));
-        user.setUserStatus(1);
-        user = tUserRepository.save(user);
-
-        String token = QEncodeUtil.aesEncrypt(user.getToken(), String.valueOf(user.getId()));
-        AccessToken accessToken = new AccessToken(user.getId(), token);
-        return accessToken;
-    }
-
-    /**
-     * 获取用户信息
-     * @param token
-     * @return
-     * @throws Exception
-     */
-    @Override
-    public TUser getUser(String token) throws Exception {
+    public TUser getTUserByToken(String token) throws Exception {
+        token = MD5Util.MD5(token);
         TUser user = tUserRepository.getTUserByToken(token);
-        return user;
+        return null;
     }
-
-
-
 }
 
 

@@ -1,5 +1,6 @@
 package com.wccwin.api.bean.resp;
 
+import com.alibaba.fastjson.JSON;
 import com.wccwin.api.pub.BusinessException;
 import com.wccwin.api.pub.ErrorMsgConfig;
 
@@ -56,6 +57,23 @@ public class RespModel<T> {
 		
 	}
 
+	/**
+	 * 异常返回
+	 * @param data
+	 * @param e
+	 * @return
+	 * @author kation
+	 * @data 2017年11月3日 下午2:15:22
+	 */
+	public static <T> RespModel<T> error(T data, BusinessException e){
+		RespModel<T> result = new RespModel<>(data);
+		int code = e.getStatus();
+		result.setStatus(0- code);
+		result.setMsg(ErrorMsgConfig.getErrorMsg(code));
+		return result;
+
+	}
+
 	public Integer getStatus() {
 		return status;
 	}
@@ -80,6 +98,8 @@ public class RespModel<T> {
 		this.msg = msg;
 	}
 
-
-
+	@Override
+	public String toString() {
+		return JSON.toJSONString(this);
+	}
 }

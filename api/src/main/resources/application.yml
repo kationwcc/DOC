@@ -1,5 +1,5 @@
 server:
-  port: 3000
+  port: 80
   context-path: /api
 logging:
   file: D:/logs/api.log  # 日志文件,绝对路径或相对路径
@@ -73,3 +73,10 @@ eureka:
 security: 
   basic:
     enabled: false
+zuul:
+  routes:
+    doc-service:
+      path: /doc/**
+      serviceI-id: doc-service
+      stripPrefix: false
+      #url: http://localhost:2000/doc/
