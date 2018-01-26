@@ -1,7 +1,7 @@
 package com.wccwin.doc.service.impl;
 
-import com.wccwin.doc.bean.req.Login;
-import com.wccwin.doc.bean.resp.AccessToken;
+import com.wccwin.doc.req.Login;
+import com.wccwin.doc.resp.AccessToken;
 import com.wccwin.doc.repository.TUserRepository;
 import com.wccwin.doc.util.MD5Util;
 import com.wccwin.doc.util.QEncodeUtil;

@@ -89,17 +89,7 @@
 			<version>1.1.2</version>
 		</dependency>
 
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger2</artifactId>
-			<version>2.6.1</version>
-		</dependency>
 
-		<dependency>
-			<groupId>io.springfox</groupId>
-			<artifactId>springfox-swagger-ui</artifactId>
-			<version>2.6.1</version>
-		</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
@@ -112,7 +102,6 @@
 			<artifactId>fastjson</artifactId>
 			<version>1.2.44</version>
 		</dependency>
-
 
 	</dependencies>
 	
@@ -130,43 +119,8 @@
 		
 		
 	</dependencyManagement>
-	
-	
-	<!-- <dependencyManagement>
-	
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-data-jpa</artifactId>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-jdbc</artifactId>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-web</artifactId>
-			</dependency>
-	
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-test</artifactId>
-				<scope>test</scope>
-			</dependency>
-			
-			<dependency>
-			    <groupId>mysql</groupId>
-			    <artifactId>mysql-connector-java</artifactId>
-			    <version>5.1.6</version>
-			</dependency>
-			
-		</dependencies>
-		
-	
-	</dependencyManagement> -->
 
 	<build>
-		<!-- <finalName>${warPackageName}</finalName> -->
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

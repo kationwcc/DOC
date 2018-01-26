@@ -1,6 +1,6 @@
 package com.wccwin.doc.controller;
 
-import com.wccwin.doc.bean.resp.RespModel;
+import com.wccwin.RespModel;
 import com.wccwin.doc.service.safe.TestService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

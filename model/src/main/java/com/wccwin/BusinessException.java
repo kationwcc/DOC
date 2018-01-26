@@ -1,4 +1,4 @@
-package com.wccwin.doc.pub;
+package com.wccwin;
 
 /**
  * 业务逻辑异常

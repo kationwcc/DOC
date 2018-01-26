@@ -1,6 +1,6 @@
 package com.wccwin.doc.service.safe.fallback;
 
-import com.wccwin.doc.bean.resp.RespModel;
+import com.wccwin.RespModel;
 import com.wccwin.doc.service.safe.TestService;
 import org.springframework.stereotype.Component;
 

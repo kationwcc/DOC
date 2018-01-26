@@ -1,6 +1,6 @@
 package com.wccwin.doc.service.safe;
 
-import com.wccwin.doc.bean.resp.RespModel;
+import com.wccwin.RespModel;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

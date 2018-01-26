@@ -1,4 +1,4 @@
-package com.wccwin.doc.pub;
+package com.wccwin;
 
 import java.io.IOException;
 import java.io.InputStream;

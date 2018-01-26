@@ -1,4 +1,4 @@
-package com.wccwin.doc.pub;
+package com.wccwin;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
