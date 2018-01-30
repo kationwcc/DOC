@@ -1,6 +1,6 @@
 server:
   port: 2100
-  context-path: /safe
+  context-path: /
 logging:
   file: /kation-cloud/logs/safe/system.log  # 日志文件,绝对路径或相对路径
   path: /kation-cloud/logs/safe  # 保存日志文件目录路径

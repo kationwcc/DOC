@@ -1,6 +1,6 @@
 server:
   port: 8080
-  context-path: /api
+  context-path: /
 logging:
   file: /kation-cloud/logs/api/system.log  # 日志文件,绝对路径或相对路径
   path: /kation-cloud/logs/api  # 保存日志文件目录路径
