@@ -1,7 +1,7 @@
 package com.wccwin.safe.service.impl;
 
-import com.wccwin.safe.bean.req.Login;
-import com.wccwin.safe.bean.resp.AccessToken;
+import com.wccwin.doc.req.Login;
+import com.wccwin.doc.resp.AccessToken;
 import com.wccwin.safe.entity.TUser;
 import com.wccwin.safe.repository.TUserRepository;
 import com.wccwin.safe.service.TUserService;

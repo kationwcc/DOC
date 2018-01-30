@@ -1,9 +1,9 @@
 server:
-  port: 80
+  port: 8080
   context-path: /api
 logging:
-  file: D:/logs/api.log  # 日志文件,绝对路径或相对路径
-  path: D:/logs  # 保存日志文件目录路径
+  file: /kation-cloud/logs/api/system.log  # 日志文件,绝对路径或相对路径
+  path: /kation-cloud/logs/api  # 保存日志文件目录路径
   level:
     root: INFO
     org.hibernate: INFO

@@ -3,3 +3,4 @@ src/main/pom.xml
 *.iml
 target
 !.gitignore
+*.log

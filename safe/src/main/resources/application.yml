@@ -2,8 +2,8 @@ server:
   port: 2100
   context-path: /safe
 logging:
-  file: D:/logs/safe.log  # 日志文件,绝对路径或相对路径
-  path: D:/logs  # 保存日志文件目录路径
+  file: /kation-cloud/logs/safe/system.log  # 日志文件,绝对路径或相对路径
+  path: /kation-cloud/logs/safe  # 保存日志文件目录路径
   level:
     root: INFO
     org.hibernate: INFO
@@ -44,8 +44,8 @@ spring:
   profiles:
     active: bendi
   redis:
-    database: 13        #Redis数据库索引（默认为0）
-    host: 139.196.51.84 #Redis服务器地址
+    database: 0        #Redis数据库索引（默认为0）
+    host: 127.0.0.1 #Redis服务器地址
     port: 6379          # Redis服务器连接端口
     password:           # Redis服务器连接密码（默认为空）
     pool:

@@ -1,8 +1,8 @@
 package com.wccwin.safe.controller;
 
-import com.wccwin.safe.bean.req.Login;
-import com.wccwin.safe.bean.resp.AccessToken;
-import com.wccwin.safe.bean.resp.RespModel;
+import com.wccwin.doc.req.Login;
+import com.wccwin.doc.resp.AccessToken;
+import com.wccwin.RespModel;
 import com.wccwin.safe.entity.TUser;
 import com.wccwin.safe.service.TUserService;
 import io.swagger.annotations.ApiOperation;

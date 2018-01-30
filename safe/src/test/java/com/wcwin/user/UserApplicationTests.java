@@ -1,7 +1,7 @@
 package com.wcwin.user;
 
 import com.wccwin.safe.SafeApplication;
-import com.wccwin.safe.bean.req.Login;
+import com.wccwin.doc.req.Login;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
