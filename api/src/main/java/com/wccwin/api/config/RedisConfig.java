@@ -1,3 +1,4 @@
+/*
 package com.wccwin.api.config;
 
 import java.lang.reflect.Method;
@@ -62,4 +63,4 @@ public class RedisConfig extends CachingConfigurerSupport{
         return template;
     }
 
-}
+}*/

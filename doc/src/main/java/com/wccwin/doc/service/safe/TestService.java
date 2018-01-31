@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @FeignClient(name="SAFE-SERVICE", fallback = com.wccwin.doc.service.safe.fallback.TestServiceFallback.class)
 public interface TestService {
 
-    @RequestMapping(value = "/safe/test/test", method = RequestMethod.GET)
+    @RequestMapping(value = "/test/test", method = RequestMethod.GET)
     RespModel<Integer> test();
 
 

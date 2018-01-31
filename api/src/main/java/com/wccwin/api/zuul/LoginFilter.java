@@ -31,7 +31,7 @@ public class LoginFilter extends ZuulFilter {
 
     @Override
     public int filterOrder() {
-        return 0;
+        return 10;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class LoginFilter extends ZuulFilter {
     @Override
     public Object run() {
 
-        RequestContext ctx = RequestContext.getCurrentContext();
+        /*RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
         try {
 
@@ -82,7 +82,7 @@ public class LoginFilter extends ZuulFilter {
             }
 
         }
-
+*/
 
         return null;
     }

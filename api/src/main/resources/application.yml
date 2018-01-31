@@ -78,5 +78,3 @@ zuul:
     doc-service:
       path: /doc/**
       serviceI-id: doc-service
-      stripPrefix: false
-      #url: http://localhost:2000/doc/
