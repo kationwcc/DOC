@@ -11,6 +11,7 @@ import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = SafeApplication.class)
@@ -18,6 +19,7 @@ public class UserApplicationTests {
 
 	@Autowired
 	private RedisTemplate redisTemplate;
+
 
 	@Test
 	public void contextLoads() {
@@ -30,6 +32,12 @@ public class UserApplicationTests {
 		ValueOperations<String, Login> operations =  redisTemplate.opsForValue();
 
 		operations.set("kation_test", login);
+
+
+
+		redisTemplate.opsForList().leftPushAll("kation_list", list);
+		redisTemplate.opsForList().leftPop("kation_list", 1, TimeUnit.DAYS);
+
 
 		//redisTemplate.delete("set");
 
