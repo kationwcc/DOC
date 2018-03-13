@@ -20,7 +20,7 @@ public class ErrorMsgConfig {
         Properties pro = new Properties();
         InputStream in = null;
         try{
-            in = GetPropertiesInfo.class.getResourceAsStream("/exception.properties");
+            in = ErrorMsgConfig.class.getResourceAsStream("/exception.properties");
             pro.load(new InputStreamReader(in, "utf-8"));
 
             Iterator<String> it= pro.stringPropertyNames().iterator();
