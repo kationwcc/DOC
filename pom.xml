@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.wccwin</groupId>
-	<artifactId>kation-spring-cloud</artifactId>
+	<artifactId>doc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	
-	<name>kation-spring-cloud</name>
-	<description>Demo project for Spring Boot</description>
+	<name>doc</name>
+	<description>doc-service</description>
 	
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,10 +20,9 @@
 	<parent>
 	    <groupId>org.springframework.boot</groupId>
 	    <artifactId>spring-boot-starter-parent</artifactId>
-	    <version>1.4.1.RELEASE</version>
+	    <version>1.5.9.RELEASE</version>
 	</parent>
 
-	
 	<dependencies>
 
 		<dependency>
@@ -117,45 +116,9 @@
 	            <type>pom</type>
 	            <scope>import</scope>
 	        </dependency>
-
 	    </dependencies>
-		
-		
+
 	</dependencyManagement>
-	
-	
-	<!-- <dependencyManagement>
-	
-		<dependencies>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-data-jpa</artifactId>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-jdbc</artifactId>
-			</dependency>
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-web</artifactId>
-			</dependency>
-	
-			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-starter-test</artifactId>
-				<scope>test</scope>
-			</dependency>
-			
-			<dependency>
-			    <groupId>mysql</groupId>
-			    <artifactId>mysql-connector-java</artifactId>
-			    <version>5.1.6</version>
-			</dependency>
-			
-		</dependencies>
-		
-	
-	</dependencyManagement> -->
 	
 	<build>
 		<plugins>
@@ -165,10 +128,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<modules>
-		<module>doc</module>
-		<module>eureka</module>
-		<module>safe</module>
-	</modules>
 </project>
