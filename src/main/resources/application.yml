@@ -1,9 +1,9 @@
 server:
   port: 2000
-  context-path: /doc
+  context-path: /
 logging:
-  file: D:/logs/doc.log  # 日志文件,绝对路径或相对路径
-  path: D:/logs  # 保存日志文件目录路径
+  file: /kation-cloud/logs/doc/system.log  # 日志文件,绝对路径或相对路径
+  path: /kation-cloud/logs/doc  # 保存日志文件目录路径
   level:
     root: INFO
     org.hibernate: INFO
@@ -11,51 +11,28 @@ logging:
     org.hibernate.type.descriptor.sql.BasicExtractor: TRACE
     com.itmuch: DEBUG
 spring:
-  datasource:
-    doc:
-      type: com.alibaba.druid.pool.DruidDataSource
-      url: jdbc:mysql://118.89.148.123:3306/doc
-      username: root
-      password: kation
-      driver-class-name: com.mysql.jdbc.Driver
-      initialSize: 5
-      minIdle: 10
-      maxActive: 30
-      timeBetweenEvictionRunsMillis: 36000000
-      minEvictableIdleTimeMillis: 300000
-      validationQuery: SELECT 1 FROM DUAL
-      testWhileIdle: true
-      testOnBorrow: false
-      testOnReturn: false
-      poolPreparedStatements: true
-      maxPoolPreparedStatementPerConnectionSize: 20
-  jpa:  
-    database : MYSQL  
-    show-sql : true
-    format-sql : true
-    hibernate:  
-      ddl-auto: update  
-      naming-strategy : org.hibernate.cfg.ImprovedNamingStrategy  
-    properties:  
-      hibernate:  
-        dialect : org.hibernate.dialect.MySQL5Dialect 
+  cloud:
+    config:
+      profile: dev
+      lable: master
+      url: http://127.0.0.1:8888/
   application:
     name: doc-service
-  profiles:
-    active: bendi
 eureka:
   instance:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}
     lease-renewal-interval-in-seconds: 15      # 心跳时间，即服务续约间隔时间（缺省为30s）
-    lease-expiration-duration-in-seconds: 60  # 发呆时间，即服务续约到期时间（缺省为90s）
+    lease-expiration-duration-in-seconds: 60   # 发呆时间，即服务续约到期时间（缺省为90s）
+    status-page-url-path: /info
+    health-check-url-path:  /health
   client:
-    healthcheck: 
-        enabled: true 
+    healthcheck:
+        enabled: true
     register-with-eureka: true
     fetch-registry: true
-    service-url: 
-      defaultZone: http://kation:123456@118.89.148.123/eureka
+    service-url:
+      defaultZone: http://kation:123456@127.0.0.1:8761/eureka
 security: 
   basic:
     enabled: false

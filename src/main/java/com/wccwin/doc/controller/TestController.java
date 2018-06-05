@@ -25,7 +25,7 @@ public class TestController {
         RespModel<Integer> safeTest = testService.test();
         System.out.println(" --   > test() In method! ");
 
-        return RespModel.success(safeTest.getData());
+        return safeTest;
     }
 
 }

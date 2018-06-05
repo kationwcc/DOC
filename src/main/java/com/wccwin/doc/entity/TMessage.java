@@ -1,23 +1,40 @@
 package com.wccwin.doc.entity;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.sql.Timestamp;
-import java.util.Objects;
 
 @Entity
 @Table(name = "t_message", schema = "word")
 public class TMessage {
-    private int id;
-    private String title;
-    private String context;
-    private Integer messageType;
-    private boolean read;
-    private String createUser;
-    private Timestamp createTime;
-    private boolean isDeleted;
 
     @Id
     @Column(name = "id")
+    private int id;
+
+    @Column(name = "title")
+    private String title;
+
+    @Column(name = "context")
+    private String context;
+
+    @Column(name = "message_type")
+    private Integer messageType;
+
+    @Column(name = "reader", length = 10)
+    private int reader;
+
+    @Column(name = "create_user")
+    private String createUser;
+
+    @Column(name = "create_time")
+    private Timestamp createTime;
+
+    @Column(name = "is_deleted")
+    private boolean isDeleted;
+
     public int getId() {
         return id;
     }
@@ -26,8 +43,7 @@ public class TMessage {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "title")
+
     public String getTitle() {
         return title;
     }
@@ -36,8 +52,6 @@ public class TMessage {
         this.title = title;
     }
 
-    @Basic
-    @Column(name = "context")
     public String getContext() {
         return context;
     }
@@ -46,8 +60,6 @@ public class TMessage {
         this.context = context;
     }
 
-    @Basic
-    @Column(name = "message_type")
     public Integer getMessageType() {
         return messageType;
     }
@@ -56,18 +68,14 @@ public class TMessage {
         this.messageType = messageType;
     }
 
-    @Basic
-    @Column(name = "read")
-    public boolean isRead() {
-        return read;
+    public int isReader() {
+        return reader;
     }
 
-    public void setRead(boolean read) {
-        this.read = read;
+    public void setReader(int reader) {
+        this.reader = reader;
     }
 
-    @Basic
-    @Column(name = "create_user")
     public String getCreateUser() {
         return createUser;
     }
@@ -76,8 +84,6 @@ public class TMessage {
         this.createUser = createUser;
     }
 
-    @Basic
-    @Column(name = "create_time")
     public Timestamp getCreateTime() {
         return createTime;
     }
@@ -86,8 +92,6 @@ public class TMessage {
         this.createTime = createTime;
     }
 
-    @Basic
-    @Column(name = "is_deleted")
     public boolean isDeleted() {
         return isDeleted;
     }
@@ -96,24 +100,4 @@ public class TMessage {
         isDeleted = deleted;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        TMessage that = (TMessage) o;
-        return id == that.id &&
-                read == that.read &&
-                isDeleted == that.isDeleted &&
-                Objects.equals(title, that.title) &&
-                Objects.equals(context, that.context) &&
-                Objects.equals(messageType, that.messageType) &&
-                Objects.equals(createUser, that.createUser) &&
-                Objects.equals(createTime, that.createTime);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id, title, context, messageType, read, createUser, createTime, isDeleted);
-    }
 }

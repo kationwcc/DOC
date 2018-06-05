@@ -11,7 +11,7 @@ import javax.servlet.Filter;
 
 @Configuration
 public class AppWebMvcConfigurer extends  WebMvcConfigurerAdapter{
-	@Bean
+	/*@Bean
     public FilterRegistrationBean corsFilterRegistration() {
         FilterRegistrationBean registration = new FilterRegistrationBean();
         registration.setFilter(corsFilter());
@@ -23,5 +23,5 @@ public class AppWebMvcConfigurer extends  WebMvcConfigurerAdapter{
 	@Bean
     public Filter corsFilter() {
         return new CorsFilter();
-    }
+    }*/
 }
